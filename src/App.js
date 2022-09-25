@@ -2391,7 +2391,7 @@ pauseOnHover ></ToastContainer>
                   onClick={() => {
                     let input = document.getElementById("new-event-name").value;
                     if (input === "") {
-                      alert("Please type something");
+                      toast.warn("Please type something");
                     } else {
                       insert_event();
                       SelectEvent(value);
@@ -2457,7 +2457,7 @@ pauseOnHover ></ToastContainer>
                     let input =
                       document.getElementById("edit-event-name").value;
                     if (input === "") {
-                      alert("Please type something");
+                      toast.warn("Please type something");
                     } else {
                       EditEvent(eventid);
                       SelectEvent(value);
@@ -2567,7 +2567,7 @@ pauseOnHover ></ToastContainer>
                     let input =
                       document.getElementById("new-reminder-name").value;
                     if (input === "") {
-                      alert("Please type something");
+                      toast.warn("Please type something");
                     } else {
                       insert_reminder();
                       SelectRemind(value);
@@ -2633,7 +2633,7 @@ pauseOnHover ></ToastContainer>
                     let input =
                       document.getElementById("edit-remind-name").value;
                     if (input === "") {
-                      alert("Please type something");
+                      toast.warn("Please type something");
                     } else {
                       EditRemind(remindid);
                       SelectRemind(value);
@@ -2826,7 +2826,7 @@ pauseOnHover ></ToastContainer>
                     let input =
                       document.getElementById("new-expense-name").value;
                     if (input === "") {
-                      alert("Please type something");
+                      toast.warn("Please type something");
                     } else {
                       insert_money_add();
                       SelectMoney();
@@ -2895,7 +2895,7 @@ pauseOnHover ></ToastContainer>
                     let input =
                       document.getElementById("new-decrement-name").value;
                     if (input === "") {
-                      alert("Please type something");
+                      toast.warn("Please type something");
                     } else {
                       insert_money_remove();
 
