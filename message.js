@@ -58,7 +58,7 @@ const interval = setInterval(function() {
                                 service: 'gmail',
                                 auth: {
                                     user: 'svishwa75@gmail.com',
-                                    pass: 'gcmtkdmuxzkrlxzc'
+                                    pass: 'rupspvxsmpwxzqxx'
                                 }
                             });
 
@@ -138,7 +138,7 @@ const interval = setInterval(function() {
                                 service: 'gmail',
                                 auth: {
                                     user: 'svishwa75@gmail.com',
-                                    pass: 'gcmtkdmuxzkrlxzc'
+                                    pass: 'rupspvxsmpwxzqxx'
                                 }
                             });
 
@@ -167,7 +167,84 @@ const interval = setInterval(function() {
         }
     }
     )
+    // events direct notify
+    get(child(dbref, "/notifications/" + text + "/events"))
+    .then((snapshot) => {
+        if (snapshot.val()) {
+            var length = Object.keys(snapshot.val()).length;
+            console.log(length);
 
+            for (let i = 0; i < length; i++) {
+                var path = Object.keys(snapshot.val())[i];
+                console.log(path);
+                const dbref = ref(db);
+                get(
+                    child(
+                        dbref,
+                        "/notifications/" + text + "/events/" + path
+                    )
+                )
+                    .then((snapshot) => {
+                        time = Date()
+                        time = time.slice(16, 21)
+                        // to notify 30 min before the event
+                        // let notify=new Date()
+                        // notify=notify.toString()
+                        // let hr=snapshot.val().eventtime
+                        // hr=hr.slice(0,2)
+                        // hr=parseInt(hr)
+                        // console.log(hr)
+                        // let min=snapshot.val().eventtime
+                        // min=min.slice(3,5)
+                        // min=parseInt(min)
+                        // console.log(min)
+                        // notify= new Date()
+                        // notify.setHours(hr)
+                        // notify.setMinutes(min)
+                        // notify.setMinutes ( notify.getMinutes() - 30 );
+                        // console.log("notify: " + notify)
+                        // notify=notify.toString()
+                        // notify=notify.slice(16,21)
+
+
+
+
+                       
+                        if (time == snapshot.val().eventtime) {
+                            var nodemailer = require('nodemailer');
+                            var transporter = nodemailer.createTransport({
+                                service: 'gmail',
+                                auth: {
+                                    user: 'svishwa75@gmail.com',
+                                    pass: 'rupspvxsmpwxzqxx'
+                                }
+                            });
+
+                            var mailOptions = {
+                                from: 'svishwa63@gmail.com',
+                                to: snapshot.val().email,
+                                subject: `WorkFlow Notification Event:${snapshot.val().name}`,
+                                text: `Hello ${snapshot.val().username} this is a notification for the event ${snapshot.val().name} for ${text} at ${snapshot.val().eventtime} (now)`,
+                            };
+
+                            transporter.sendMail(mailOptions, function (error, info) {
+                                if (error) {
+                                    console.log(error);
+                                } else {
+                                    console.log('Email sent: ' + info.response);
+                                }
+                            });
+                        }
+                        else {
+                            console.log("nope")
+                        }
+
+                    }
+                    )
+            }
+        }
+    }
+    )
 
   }, 60000);
  

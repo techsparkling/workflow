@@ -110,7 +110,7 @@ function App() {
         email: localStorage.Email,
         pic: localStorage.pic,
       });
-      console.log(user.userid);
+      //console.log(user.userid);
       SelectMoney();
     }
   }, []);
@@ -123,11 +123,11 @@ function App() {
       .then((snapshot) => {
         if (snapshot.val().todo) {
           var length = Object.keys(snapshot.val().todo).length;
-          console.log(length);
+          //console.log(length);
 
           for (let i = 0; i < length; i++) {
             var path = Object.keys(snapshot.val().todo)[i];
-            console.log(path);
+            //console.log(path);
             const dbref = ref(db);
             get(
               child(
@@ -151,7 +151,7 @@ function App() {
                   if (delete_todo.style.display === "block") {
                     delete_todo.style.display = "none";
                   } else {
-                    console.log("showing edit menu");
+                    //console.log("showing edit menu");
                     delete_todo.style.display = "block";
                   }
                   document.getElementById('logo').scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})
@@ -181,7 +181,7 @@ function App() {
                   if (edit_todo.style.display === "block") {
                     edit_todo.style.display = "none";
                   } else {
-                    console.log("showing edit menu");
+                    //console.log("showing edit menu");
                     edit_todo.style.display = "block";
                   }
                 };
@@ -250,7 +250,7 @@ function App() {
                         finished: "no",
                       }
                     ).then(() => {
-                      console.log("updated successfully");
+                      //console.log("updated successfully");
                     });
                   } else {
                     text.innerHTML =
@@ -271,29 +271,29 @@ function App() {
                         finished: "yes",
                       }
                     ).then(() => {
-                      console.log("updated successfully");
+                      //console.log("updated successfully");
                     });
                   }
                 };
 
-                console.log(snapshot.val().name);
+                //console.log(snapshot.val().name);
                 // const buttons = document.querySelectorAll('.butt');
 
                 // buttons.forEach((button) => {
                 //   button.addEventListener('click', function handleClick(event) {
-                //     console.log('edit button clicked', event);
-                //     console.log("edit button title",button.title)
+                //     //console.log('edit button clicked', event);
+                //     //console.log("edit button title",button.title)
                 //     EditData(button.title);
                 //     SelectData();
 
                 //   });
                 // });
                 // const boxes = document.querySelectorAll('.h1');
-                // console.log('box')
+                // //console.log('box')
                 // boxes.forEach((box) => {
                 //   box.addEventListener('click', function handleClick(event) {
-                //     console.log('box clicked', event);
-                //     console.log("box title",box.title);
+                //     //console.log('box clicked', event);
+                //     //console.log("box title",box.title);
                 //     DeleteData(box.title);
                 //     SelectData();
 
@@ -301,7 +301,7 @@ function App() {
                 // });
               })
               .catch((error) => {
-                console.log(error);
+                //console.log(error);
               });
           }
         } else {
@@ -314,25 +314,25 @@ function App() {
   }
   function EditData(title) {
     var input = document.getElementById("edit-todo-name").value;
-    console.log(title);
+    //console.log(title);
     update(
       ref(db, "users/" + user.userid + "/" + value + "/todo/" + title + "/"),
       {
         name: input,
       }
     ).then(() => {
-      console.log("updated successfully");
+      //console.log("updated successfully");
     });
     var shower = document.getElementById("shower");
     shower.innerText = " ";
     // SelectData()
   }
   function DeleteData(title) {
-    console.log(title);
+    //console.log(title);
     remove(
       ref(db, "users/" + user.userid + "/" + value + "/todo/" + title + "/")
     ).then(() => {
-      console.log("data removed");
+      //console.log("data removed");
       // SelectData()
     });
   }
@@ -343,8 +343,8 @@ function App() {
     var google_privider = new GoogleAuthProvider();
 
     signInWithPopup(auth, google_privider).then((re) => {
-      console.log(re);
-      console.log(re.user.uid);
+      //console.log(re);
+      //console.log(re.user.uid);
 
       localStorage.setItem("username", re.user.displayName);
       localStorage.setItem("Email", re.user.email);
@@ -362,10 +362,10 @@ function App() {
         email: re.user.email,
       })
         .then(() => {
-          console.log("logged in");
+          //console.log("logged in");
         })
         .catch((err) => {
-          console.log(err);
+          //console.log(err);
         });
       // const user=result.user
     });
@@ -402,7 +402,7 @@ function App() {
       eventdate: value,
     })
       .then((snapshot) => {
-        console.log(snapshot.key);
+      
         update(ref(db, "/notifications/" + value + "/events/" + snapshot.key), {
           userid: user.userid,
           email: user.email,
@@ -427,7 +427,7 @@ function App() {
   function EditEvent(title) {
     var input = document.getElementById("edit-event-name").value;
     var time = document.getElementById("edit-event-name").value;
-    console.log(title);
+    //console.log(title);
     if (editeventtime === true) {
       update(
         ref(
@@ -491,13 +491,13 @@ function App() {
     get(child(dbref, "users/" + user.userid + "/notes/" + title + "/")).then(
       (snapshot) => {
         if (snapshot.val().name) {
-          console.log(snapshot.val().name);
+          //console.log(snapshot.val().name);
           setNotesname(snapshot.val().name);
           if (snapshot.val().text) {
             setNotescontent(snapshot.val().text);
-            console.log(snapshot.val().text);
+            //console.log(snapshot.val().text);
             if (snapshot.val().text == " ") {
-              console.log("New file no content was previously written");
+              //console.log("New file no content was previously written");
 
               setNotescontent(snapshot.val().text);
             } else {
@@ -507,7 +507,7 @@ function App() {
             }
           }
         } else {
-          console.log("not working");
+          //console.log("not working");
         }
       }
     );
@@ -671,11 +671,11 @@ function App() {
       .then((snapshot) => {
         if (snapshot.val().notes) {
           var length = Object.keys(snapshot.val().notes).length;
-          console.log(length);
+          //console.log(length);
 
           for (let i = 0; i < length; i++) {
             var path = Object.keys(snapshot.val().notes)[i];
-            console.log(path);
+            //console.log(path);
             const dbref = ref(db);
             get(child(dbref, "users/" + user.userid + "/notes/" + path))
               .then((snapshot) => {
@@ -699,10 +699,10 @@ function App() {
                 shower.appendChild(icon);
                 shower.appendChild(h1);
 
-                console.log(snapshot.val().name);
+                //console.log(snapshot.val().name);
               })
               .catch((error) => {
-                console.log(error);
+                //console.log(error);
               });
           }
         } else {
@@ -744,7 +744,7 @@ function App() {
     document.getElementById('main-sec').style.height="auto"
     document.getElementById('todos').scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})
     if (edit_todo.style.display === "block") {
-      console.log("closing edit menu");
+      //console.log("closing edit menu");
       edit_todo.style.display = "none";
     } else {
       edit_todo.style.display = "block";
@@ -943,7 +943,7 @@ function App() {
                 
               })
               .catch((error) => {
-                console.log(error);
+                //console.log(error);
               });
           }
         } else {
@@ -988,7 +988,7 @@ function App() {
       toast.success("Event removed");
       remove(ref(db, "/notifications/" + value + "/events/" + title)).then(
         () => {
-          console.log("Event removed");
+          //console.log("Event removed");
         }
       );
     });
@@ -1037,7 +1037,7 @@ function App() {
       reminderdate: value,
     })
       .then((snapshot) => {
-        console.log(snapshot.key);
+        //console.log(snapshot.key);
         update(
           ref(db, "/notifications/" + value + "/reminders/" + snapshot.key),
           {
@@ -1070,11 +1070,11 @@ function App() {
       .then((snapshot) => {
         if (snapshot.val().reminders) {
           var length = Object.keys(snapshot.val().reminders).length;
-          console.log(length);
+          //console.log(length);
 
           for (let i = 0; i < length; i++) {
             var path = Object.keys(snapshot.val().reminders)[i];
-            console.log(path);
+            //console.log(path);
             const dbref = ref(db);
             get(
               child(
@@ -1095,8 +1095,8 @@ function App() {
                 let date = snapshot.val().reminderdate;
 
                 const time = snapshot.val().remindertime;
-                console.log(date);
-                console.log(time);
+                //console.log(date);
+                //console.log(time);
                 deleteicon.onclick = () => {
                   document.getElementById('logo').scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})
                   var currentWidth = window.innerWidth
@@ -1113,7 +1113,7 @@ function App() {
                   if (delete_todo.style.display === "block") {
                     delete_todo.style.display = "none";
                   } else {
-                    console.log("showing edit menu");
+                    //console.log("showing edit menu");
                     delete_todo.style.display = "block";
                   }
                 };
@@ -1135,7 +1135,7 @@ function App() {
                     snapshot.val().remindertime +
                     " GMT+0530 (India Standard Time)";
                   setTime(text);
-                  console.log(snapshot.val().remindertime);
+                  //console.log(snapshot.val().remindertime);
                   setRemindid(snapshot.key);
                   let edit_todo = document.getElementById("edit-remind");
                   document.getElementById('logo').scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})
@@ -1150,7 +1150,7 @@ function App() {
                   if (edit_todo.style.display === "block") {
                     edit_todo.style.display = "none";
                   } else {
-                    console.log("showing edit menu");
+                    //console.log("showing edit menu");
                     edit_todo.style.display = "block";
                   }
                 };
@@ -1214,10 +1214,10 @@ function App() {
                 h1.appendChild(icons);
                 shower.appendChild(h1);
 
-                console.log(snapshot.val().name);
+                //console.log(snapshot.val().name);
               })
               .catch((error) => {
-                console.log(error);
+                //console.log(error);
               });
           }
         } else {
@@ -1283,7 +1283,7 @@ function App() {
     document.getElementById('reminders').scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})
     let edit_todo = document.getElementById("edit-remind");
     if (edit_todo.style.display === "block") {
-      console.log("closing edit menu");
+      //console.log("closing edit menu");
       edit_todo.style.display = "none";
     } else {
       edit_todo.style.display = "block";
@@ -1299,7 +1299,7 @@ function App() {
     if (edit_todo.style.display === "block") {
       edit_todo.style.display = "none";
     } else {
-      console.log("showing edit menu");
+      //console.log("showing edit menu");
       edit_todo.style.display = "block";
     }
   }
@@ -1308,10 +1308,10 @@ function App() {
     remove(
       ref(db, "users/" + user.userid + "/" + value + "/reminders/" + title)
     ).then(() => {
-      console.log("reminder removed");
+      //console.log("reminder removed");
       remove(ref(db, "/notifications/" + value + "/reminders/" + title)).then(
         () => {
-          console.log("reminder removed");
+          //console.log("reminder removed");
         }
       );
     });
@@ -1445,15 +1445,15 @@ function App() {
     else if (selected_month==="Dec"){
       selected_month=12
     }
-    console.log(current_year)
-    console.log(current_month)
-    console.log(current_date)
-    console.log(selected_year)
-    console.log(selected_month)
-    console.log(selected_date)
-    console.log(current_year>selected_year)
-    console.log(current_month>selected_month)
-    console.log(current_date>selected_date)
+    //console.log(current_year)
+    //console.log(current_month)
+    //console.log(current_date)
+    //console.log(selected_year)
+    //console.log(selected_month)
+    //console.log(selected_date)
+    //console.log(current_year>selected_year)
+    //console.log(current_month>selected_month)
+    //console.log(current_date>selected_date)
     // grey
     if(current_year>selected_year){
       document.getElementById('plus-todo').style.color="grey"
@@ -1521,7 +1521,7 @@ function App() {
   function quote(){
   fetch("http://api.quotable.io/random").then(response => response.json()).then(result => {
     if(result.content.length>=120){
-      console.log("runnin again")
+      //console.log("runnin again")
       quote()
     }
     else{
@@ -1536,19 +1536,19 @@ function App() {
     const dbref = ref(db);
     get(child(dbref, "users/" + user.userid))
       .then((snapshot) => {
-        console.log(snapshot.val().money);
+        //console.log(snapshot.val().money);
 
         var length = Object.keys(snapshot.val().money).length;
-        console.log(length);
+        //console.log(length);
 
         for (let i = 0; i < length; i++) {
           let path = Object.keys(snapshot.val().money)[i];
-          console.log(path);
+          //console.log(path);
           get(child(dbref, "users/" + user.userid + "/money/" + path)).then(
             (snapshot) => {
-              console.log(path, snapshot.val());
+              //console.log(path, snapshot.val());
               let innerpath_length = Object.keys(snapshot.val()).length;
-              console.log(path, innerpath_length);
+              //console.log(path, innerpath_length);
               let date = document.createElement("div");
               date.classList = "p-5 text-left ";
               let date_text = document.createElement("h1");
@@ -1558,7 +1558,7 @@ function App() {
 
                 let trac = document.createElement("div");
                 trac.classList = "flex mt-5 border-b-2  p-2 border-gray-500";
-                console.log(path, innerpath);
+                //console.log(path, innerpath);
 
                 get(
                   child(
@@ -1566,7 +1566,7 @@ function App() {
                     "users/" + user.userid + "/money/" + path + "/" + innerpath
                   )
                 ).then((snapshot) => {
-                  console.log(path, snapshot.val());
+                  //console.log(path, snapshot.val());
                   let amount = snapshot.val().amount;
 
                   amount = parseInt(amount);
@@ -1631,7 +1631,7 @@ function App() {
         }
       })
       .catch((error) => {
-        console.log(error);
+        //console.log(error);
       });
   }
   var doRelocation = function() {
@@ -1761,12 +1761,12 @@ pauseOnHover ></ToastContainer>
                         onViewChange={(newValue) => {
                           
                           setValue(newValue);
-                          console.log(newValue);
+                          //console.log(newValue);
                         }}
                         onChange={(newValue) => {
                           check(newValue.toString().slice(0, 15))
                           setValue(newValue.toString().slice(0, 15));
-                          console.log(newValue.toString().slice(0, 15));
+                          //console.log(newValue.toString().slice(0, 15));
                           SelectData(newValue.toString().slice(0, 15));
                           SelectEvent(newValue.toString().slice(0, 15));
                           SelectRemind(newValue.toString().slice(0, 15));
@@ -2221,7 +2221,7 @@ pauseOnHover ></ToastContainer>
                 <div className="mt-[15px] hidden" id="time-picker">
                   {/* <ThemeProvider theme={darkTheme} className="">
                <LocalizationProvider dateAdapter={AdapterDateFns}>
-{ console.log(time)}
+{ //console.log(time)}
       <TimePicker
         label="Set Time"
         value={time}
@@ -2369,7 +2369,7 @@ pauseOnHover ></ToastContainer>
                 <div className="mt-[25px] " id="time-picker">
                   <ThemeProvider theme={darkTheme} className="mt-5">
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
-                      {console.log(time)}
+                   
                       <TimePicker
                         label="Set Time"
                         value={time}
@@ -2379,7 +2379,7 @@ pauseOnHover ></ToastContainer>
 
                           setEventtime(text);
                           setTime(newValue);
-                          console.log(text);
+                          //console.log(text);
                         }}
                         renderInput={(params) => <TextField {...params} />}
                       />
@@ -2434,7 +2434,7 @@ pauseOnHover ></ToastContainer>
                 <div className="mt-[25px] " id="time-picker">
                   <ThemeProvider theme={darkTheme} className="mt-5">
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
-                      {console.log(time)}
+                      
                       <TimePicker
                         label="Set Time"
                         value={time}
@@ -2444,7 +2444,7 @@ pauseOnHover ></ToastContainer>
                           text = text.slice(16, 21);
                           setEventtime(text);
                           setTime(newValue);
-                          console.log(text);
+                          //console.log(text);
                         }}
                         renderInput={(params) => <TextField {...params} />}
                       />
@@ -2545,7 +2545,7 @@ pauseOnHover ></ToastContainer>
                 <div className="mt-[25px] " id="time-picker">
                   <ThemeProvider theme={darkTheme} className="mt-5">
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
-                      {console.log(time)}
+                      
                       <TimePicker
                         label="Set Time"
                         value={time}
@@ -2554,7 +2554,7 @@ pauseOnHover ></ToastContainer>
                           text = text.slice(16, 21);
                           setRemindtime(text);
                           setTime(newValue);
-                          console.log(text);
+                          //console.log(text);
                         }}
                         renderInput={(params) => <TextField {...params} />}
                       />
@@ -2610,7 +2610,7 @@ pauseOnHover ></ToastContainer>
                 <div className="mt-[25px] " id="time-picker">
                   <ThemeProvider theme={darkTheme} className="mt-5">
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
-                      {console.log(time)}
+                    
                       <TimePicker
                         label="Set Time"
                         value={time}
@@ -2620,7 +2620,7 @@ pauseOnHover ></ToastContainer>
                           text = text.slice(16, 21);
                           setRemindtime(text);
                           setTime(newValue);
-                          console.log(text);
+                          //console.log(text);
                         }}
                         renderInput={(params) => <TextField {...params} />}
                       />
@@ -2728,7 +2728,7 @@ pauseOnHover ></ToastContainer>
                           className="mx-auto bg-green-500 laptop:ml-5 mt-10 text-white p-1 pl-5 pr-5 rounded-md"
                           onClick={() => {
                             document.getElementById('logo').scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})
-                            console.log("increment");
+                            //console.log("increment");
                             document.getElementById("new-expense-name").value =
                               " ";
                             document.getElementById("increment-amount").value =
@@ -2747,7 +2747,7 @@ pauseOnHover ></ToastContainer>
                           className="mx-auto bg-red-500 laptop:ml-5 ml-2 mt-10 text-white p-1 pl-5 pr-5 rounded-md"
                           onClick={() => {
                             document.getElementById('logo').scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})
-                            console.log("decrement");
+                            //console.log("decrement");
                             document.getElementById("new-expense-name").value =
                               " ";
                             document.getElementById("increment-amount").value =
