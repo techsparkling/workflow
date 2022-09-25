@@ -741,7 +741,7 @@ function App() {
   //  close edit todo section
   function closeEditTodos() {
     let edit_todo = document.getElementById("edit-todo");
-    document.getElementById('main-sec').style.height="80%"
+    document.getElementById('main-sec').style.height="auto"
     document.getElementById('todos').scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})
     if (edit_todo.style.display === "block") {
       console.log("closing edit menu");
@@ -2323,7 +2323,7 @@ pauseOnHover ></ToastContainer>
                     DeleteData(todoid);
                     SelectData(value);
                     let delete_todo = document.getElementById("delete-todo");
-
+                    document.getElementById('main-sec').style.height="auto"
                     if (delete_todo.style.display === "block") {
                       delete_todo.style.display = "none";
                     }
