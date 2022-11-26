@@ -31,6 +31,7 @@ const db = getDatabase();
 const dbref = ref(db)
 
 const interval = setInterval(function() {
+    
     console.log(Date())
     // reminders
     get(child(dbref, "/notifications/" + text + "/reminders"))

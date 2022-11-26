@@ -65,15 +65,7 @@ import { isToday } from "date-fns";
 import { Avatar, Checkbox } from "@mui/material";
 import { icon } from "@fortawesome/fontawesome-svg-core";
 const firebaseConfig = {
-  apiKey: "AIzaSyDHYfTyCjQctCJqg3qH2OzWTaa4ebmMGm8",
-  authDomain: "workflow-test-d418a.firebaseapp.com",
-  projectId: "workflow-test-d418a",
-  storageBucket: "workflow-test-d418a.appspot.com",
-  messagingSenderId: "664572215219",
-  appId: "1:664572215219:web:93445f5accc430cef8d5c6",
-  measurementId: "G-ZPFR4LM339",
-  databaseURL:
-    "https://workflow-test-d418a-default-rtdb.asia-southeast1.firebasedatabase.app/",
+ 
 };
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
