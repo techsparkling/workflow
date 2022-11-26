@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# WorkFLow 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Introducting Workflow. Your all in one productivity manager.
 
-## Available Scripts
+## Tools used:
+- React/tailwind for frontend
+- Firebase for auth/database
+- Nodemailer for email service
+- Aws Ec2 for hosting
 
-In the project directory, you can run:
+## Features:
+- Google Authentication
+- Responsive
+- Motivation quotes upon login
+- Add Todos,reminders,events for any day from anywhere (Data synced across devices)
+- Get timer for reminder/events
+- Email notifications for reminder/events
+- Unlimited Notes creation
+- Track expenses through expense menu
+- Set agenda for any date using calender in the left bar
+- Feedback hub in settings
+- Clean and modern Ui
 
-### `npm start`
+Link:
+["WorkFlow"](http://workflowonline.in:3000/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Landing:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![image](https://user-images.githubusercontent.com/43082361/204093501-91e796bf-b298-499c-86ea-0e369a9a772b.png)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Main Screen:
+![image](https://user-images.githubusercontent.com/43082361/204093565-fbbe5300-3767-424d-9fb4-1e7ef311ab1b.png)
+## Creating menu for todos/events/reminders/notes
 
-### `npm run build`
+![image](https://user-images.githubusercontent.com/43082361/204093765-2d1c1a3c-0412-43c5-8726-50c7218fe2a9.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Editing menu:
+![image](https://user-images.githubusercontent.com/43082361/204093583-8ac3d3cc-6ffc-4464-9dc7-c4607303a099.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Deleting Menu:
+![image](https://user-images.githubusercontent.com/43082361/204093611-3f7fcf02-758a-497d-a476-0babd0cd6011.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Notes Menu:
+![image](https://user-images.githubusercontent.com/43082361/204093640-1411f351-b9bb-42d0-9b15-9b35ba7058f4.png)
 
-### `npm run eject`
+## Expenses Menu:
+![image](https://user-images.githubusercontent.com/43082361/204093667-21bfc6fc-65e0-4ca1-b8fd-c3a80f54444e.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Increment / Decrement Menu:
+![image](https://user-images.githubusercontent.com/43082361/204093685-79a55763-e5cd-4aea-a8d4-261dfffe0ca7.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![image](https://user-images.githubusercontent.com/43082361/204093698-173887fa-0e6e-415d-948a-c130b5ace31b.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Settings Menu:
+![image](https://user-images.githubusercontent.com/43082361/204093720-4bcec7ea-6a0c-4bde-b684-f6b5b62d2c44.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Email Notifications:
+![image](https://user-images.githubusercontent.com/43082361/204093850-85317039-d872-4851-93f9-e101bb71737f.png)
+![image](https://user-images.githubusercontent.com/43082361/204093856-b9b85878-b3cd-4bfe-bd43-37bc8a1d6930.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Video Demo:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+https://user-images.githubusercontent.com/43082361/204093801-a1990e58-33a4-4d08-83a0-02ee3771ff3f.mp4
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+Please lemme know your opinion.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
