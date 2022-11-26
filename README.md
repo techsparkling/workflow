@@ -3,7 +3,7 @@
 Introducting Workflow. Your all in one productivity manager.
 
 ## Tools used:
-- React/tailwind for frontend
+- React/tailwind/MUI for frontend
 - Firebase for auth/database
 - Nodemailer for email service
 - Aws Ec2 for hosting
